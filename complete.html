@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业不吼 - 冷静值已回满</title>
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 通用样式 -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- 冷却完成页面特定样式 -->
+    <link rel="stylesheet" href="css/complete.css">
+</head>
+<body class="bg-[#F5F5F5] h-screen w-screen flex items-center justify-center">
+    <!-- iPhone 外观容器 -->
+    <div class="iphone-container">
+        <!-- 主内容区域 -->
+        <div id="main-content" class="flex flex-col h-full items-center justify-center bg-[#F9FAFB] relative">
+            <!-- 返回首页按钮 - 简化版 -->
+            <a id="home-button" href="#" class="home-btn">
+                <i class="fas fa-house mr-1"></i>
+                首页
+            </a>
+            
+            <!-- 游戏风格容器 -->
+            <div class="game-container fade-in">
+                <!-- 勋章图标 -->
+                <div class="mb-4">
+                    <i class="fas fa-medal medal-icon"></i>
+                </div>
+                
+                <!-- 完成信息 -->
+                <h1 class="text-2xl font-bold text-gray-800 mb-2 title-animation">冷静值已回满！</h1>
+                <p class="subtitle text-center text-gray-600 mb-6 max-w-xs px-2 fade-in">解锁新技能：理性沟通！</p>
+                
+                <!-- 按钮区域 - 居中排版 -->
+                <div class="flex flex-col items-center justify-center w-full mx-auto">
+                    <!-- 夸夸咒按钮 -->
+                    <button id="praise-button" class="game-btn mb-3 fade-in text-center" style="animation-delay: 0.2s;">
+                        <i class="fas fa-wand-magic-sparkles mr-3"></i>
+                        试试神奇夸夸咒
+                    </button>
+                    
+                    <!-- 讲解页按钮 -->
+                    <button id="library-button" class="game-btn fade-in text-center" style="animation-delay: 0.4s;">
+                        <i class="fas fa-book-open-reader mr-3"></i>
+                        回到题目讲解页
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 引入complete.js脚本以启用游戏风格功能 -->
+    <script src="js/complete.js"></script>
+</body>
+</html>

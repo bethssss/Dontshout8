@@ -1,0 +1,156 @@
+/**
+ * 讲解库页面样式
+ */
+
+/* 步骤卡片样式 */
+.step-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #E5E7EB;
+    transition: all 0.3s ease;
+}
+
+.step-card:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+}
+
+.step-number {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    background-color: #3B82F6;
+    color: white;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    margin-right: 8px;
+}
+
+/* 公式样式 */
+.formula {
+    font-family: 'Times New Roman', serif;
+    background-color: #EFF6FF;
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin: 8px 0;
+    display: inline-block;
+}
+
+/* 难度标签样式 */
+.difficulty-easy {
+    background-color: #D1FAE5;
+    color: #047857;
+}
+
+.difficulty-medium {
+    background-color: #FEF3C7;
+    color: #B45309;
+}
+
+.difficulty-hard {
+    background-color: #FEE2E2;
+    color: #B91C1C;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* 模态框样式 */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 12px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 16px;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    color: #6B7280;
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    color: #1F2937;
+}
+
+/* PRO角标样式 */
+.pro-badge {
+    font-weight: bold;
+    font-size: 0.65rem;
+    transition: all 0.2s ease;
+}
+
+.pro-badge:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 悬浮按钮通用样式 */
+.floating-button {
+    transition: all 0.3s ease;
+    z-index: 40;
+}
+
+/* 冷却按钮样式 */
+#cooling-button {
+    transition: all 0.3s ease;
+    z-index: 40;
+}
+
+#cooling-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 表扬按钮样式 */
+#praise-button {
+    transition: all 0.3s ease;
+    z-index: 40;
+}
+
+#praise-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 按钮提示框样式 */
+#button-tooltip {
+    z-index: 45;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(10px);
+}
+
+#button-tooltip.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业不吼 - 智能讲解库</title>
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 通用样式 -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- 讲解库页面特定样式 -->
+    <link rel="stylesheet" href="css/library.css">
+    <style>
+        .solution-card {
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .solution-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .solution-tag {
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 999px;
+        }
+        
+        .image-preview {
+            border: 2px dashed #CBD5E0;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+        
+        .diagnosis-card {
+            background-color: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .diagnosis-item {
+            margin-bottom: 8px;
+        }
+        
+        .diagnosis-label {
+            font-weight: 500;
+            color: #64748B;
+            font-size: 0.8rem;
+            margin-bottom: 2px;
+        }
+        
+        .diagnosis-content {
+            color: #334155;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body class="bg-[#F5F5F5] h-screen w-screen flex items-center justify-center">
+    <!-- iPhone 外观容器 -->
+    <div class="iphone-container">
+        <!-- 主内容区域 -->
+        <div id="main-content" class="scrollable-content">
+            <!-- 顶部导航 -->
+            <div class="flex items-center justify-between mb-6">
+                <a href="camera.html" class="text-gray-600 flex items-center">
+                    <i class="fas fa-arrow-left mr-1"></i>
+                    <span>返回</span>
+                </a>
+                <h1 class="text-xl font-bold text-gray-800">智能讲解库</h1>
+                <div class="w-16"></div> <!-- 占位，保持标题居中 -->
+            </div>
+            
+            <!-- 题目图片 -->
+            <div class="bg-white p-4 rounded-lg mb-4">
+                <div class="image-preview bg-gray-100">
+                    <p class="text-gray-500">题目图片预览区域</p>
+                </div>
+            </div>
+            
+            <!-- 诊断卡片 -->
+            <div class="diagnosis-card mb-5">
+                <div class="diagnosis-item">
+                    <div class="diagnosis-label">核心考点</div>
+                    <div class="diagnosis-content" id="main-point">本题考查：长方形周长与面积</div>
+                </div>
+                <div class="diagnosis-item">
+                    <div class="diagnosis-label">常见难点</div>
+                    <div class="diagnosis-content" id="pain-point">孩子易错：周长与面积概念混淆</div>
+                </div>
+                <div class="diagnosis-item">
+                    <div class="diagnosis-label">教练悄悄话</div>
+                    <div class="diagnosis-content" id="parent-tip">温馨提示：先别急着讲公式，从下面的方法一开始吧！</div>
+                </div>
+            </div>
+            
+            <!-- 核心讲解策略 -->
+            <h2 class="text-lg font-semibold text-gray-800 mb-3">核心讲解策略</h2>
+            
+            <!-- 讲解卡片列表 -->
+            <div class="space-y-4" id="strategy-cards">
+                <!-- 家长速通讲解 -->
+                <div class="solution-card bg-white p-4" data-strategy="standard_teach">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="font-medium text-gray-800">家长速通讲解</h3>
+                        <span class="solution-tag bg-blue-100 text-blue-600">推荐</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">快速看懂解题步骤，让你自己先'秒懂'。</p>
+                    <button class="w-full py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
+                        查看讲解
+                    </button>
+                </div>
+                
+                <!-- 生活类比讲解 -->
+                <div class="solution-card bg-white p-4" data-strategy="life_analogy">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="font-medium text-gray-800">生活类比讲解</h3>
+                        <div class="flex items-center">
+                            <span class="solution-tag bg-green-100 text-green-600 mr-1">启发式</span>
+                            <span class="solution-tag bg-yellow-100 text-yellow-600 pro-badge cursor-pointer">PRO</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">用孩子最熟悉的生活场景打比方，让他一听就明白。</p>
+                    <button class="w-full py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">
+                        查看类比法
+                    </button>
+                </div>
+                
+                <!-- 游戏互动讲解 -->
+                <div class="solution-card bg-white p-4" data-strategy="game_interaction">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="font-medium text-gray-800">游戏互动讲解</h3>
+                        <div class="flex items-center">
+                            <span class="solution-tag bg-purple-100 text-purple-600 mr-1">趣味</span>
+                            <span class="solution-tag bg-yellow-100 text-yellow-600 pro-badge cursor-pointer">PRO</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">提供可以和孩子一起动手操作的游戏，边玩边学。</p>
+                    <button class="w-full py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition">
+                        查看互动法
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 底部提示区域 -->
+            <div class="mt-6 flex flex-col items-center">
+                <p class="text-xs text-gray-500 text-center">
+                    <i class="fa-solid fa-star text-yellow-500 mr-1"></i>
+                    专为家长设计的辅导方案，让孩子轻松学习
+                </p>
+            </div>
+        </div>
+        
+        <!-- 悬浮按钮区域 -->
+        <!-- 冷却按钮 -->
+        <div id="cooling-button" class="floating-button bottom-24 right-6 bg-red-500 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg cursor-pointer hover:bg-red-600 transition">
+            <i class="fas fa-snowflake text-lg"></i>
+        </div>
+        
+        <!-- 表扬按钮 -->
+        <div id="praise-button" class="floating-button bottom-40 right-6 bg-yellow-500 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg cursor-pointer hover:bg-yellow-600 transition">
+            <i class="fas fa-thumbs-up text-lg"></i>
+        </div>
+        
+        <!-- 悬浮按钮提示 -->
+        <div class="floating-button bottom-12 right-6 bg-white rounded-lg p-2 shadow-md text-xs text-gray-600 max-w-[200px] hidden" id="button-tooltip">
+            <p class="tooltip-content"></p>
+        </div>
+    </div>
+
+    <!-- 讲解库页面特定脚本 -->
+    <script src="js/library.js"></script>
+</body>
+</html>

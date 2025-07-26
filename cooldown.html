@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业不吼 - 战术冷却</title>
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 通用样式 -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- 冷却页面特定样式 -->
+    <link rel="stylesheet" href="css/cooldown.css">
+</head>
+<body class="bg-[#2C3E50] h-screen w-screen flex items-center justify-center">
+    <!-- iPhone 外观容器 -->
+    <div class="iphone-container">
+        <!-- 主内容区域 -->
+        <div id="main-content" class="flex flex-col h-full bg-[#2C3E50] text-white relative">
+            <!-- 顶部返回按钮 -->
+            <div class="absolute top-6 left-6 z-10">
+                <a href="#" id="back-button" class="text-white flex items-center opacity-80 hover:opacity-100 transition">
+                    <i class="fas fa-arrow-left mr-1"></i>
+                    <span>返回</span>
+                </a>
+            </div>
+            
+            <!-- 中心内容区域 -->
+            <div class="flex flex-col h-full items-center justify-center">
+                <!-- 呼吸动画容器 -->
+                <div id="breathing-circle" class="breathing-animation mb-8"></div>
+                
+                <!-- 智慧文案显示区域 - 固定高度容器 -->
+                <div class="quote-container w-full px-6 mb-8">
+                    <p id="quote-text" class="text-center text-white text-lg max-w-xs mx-auto"></p>
+                </div>
+                
+                <!-- 按钮区域 -->
+                <div class="flex flex-col mt-4">
+                    <button id="complete-cooldown" class="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition flex items-center justify-center">
+                        <i class="fas fa-check mr-2"></i>
+                        冷静成功
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 冷却页面特定脚本 -->
+    <script src="js/cooldown.js"></script>
+</body>
+</html>

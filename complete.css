@@ -1,0 +1,93 @@
+/**
+ * 冷却完成页面样式
+ */
+
+/* 勋章图标样式 */
+.medal-icon {
+    font-size: 5rem;
+    color: #FFD700;
+    animation: shine 3s infinite;
+    margin-bottom: 1.5rem;
+}
+
+/* 勋章闪亮动画 */
+@keyframes shine {
+    0% { text-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
+    50% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.6); }
+    100% { text-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
+}
+
+/* 标题动画 */
+.title-animation {
+    animation: popIn 0.8s ease-out;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    70% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* 按钮样式 - 优化居中 */
+.game-btn {
+    background-color: #4F46E5;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    max-width: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 确保内容居中 */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(79, 70, 229, 0.25);
+}
+
+.game-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(79, 70, 229, 0.3);
+    background-color: #4338CA;
+}
+
+.game-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(79, 70, 229, 0.2);
+}
+
+/* 返回首页按钮 */
+.home-btn {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    color: #6B7280;
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    transition: color 0.3s ease;
+}
+
+.home-btn:hover {
+    color: #4F46E5;
+}
+
+/* 游戏风格容器 */
+.game-container {
+    background-color: #F9FAFB;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+}
+
+/* 渐入动画 */
+.fade-in {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

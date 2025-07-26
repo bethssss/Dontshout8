@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRO天使版 - 作业不吼</title>
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 通用样式 -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- 付费页面特定样式 -->
+    <link rel="stylesheet" href="css/payment.css">
+</head>
+<body class="bg-[#F5F5F5] h-screen w-screen flex items-center justify-center">
+    <!-- iPhone 外观容器 -->
+    <div class="iphone-container">
+        <!-- 主内容区域 -->
+        <div id="main-content" class="flex flex-col items-center justify-center h-full relative">
+            <!-- 背景内容 -->
+            <div class="flex flex-col items-center justify-center mb-20">
+                <i class="fa-solid fa-crown text-[#F9A825] text-[8rem] mb-6 animate-pulse"></i>
+                <h2 class="text-xl font-bold text-gray-800 mb-2">PRO天使版</h2>
+                <p class="text-gray-600">正在加载专属特权...</p>
+            </div>
+            <!-- 付费引导底部抽屉 -->
+            <div id="payment-sheet" class="payment-sheet hidden">
+                <!-- 顶部区域：情感与价值锚定 -->
+                <div class="p-6 relative">
+                    <!-- 关闭按钮 -->
+                    <button id="close-btn" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                    
+                    <!-- 大标题 -->
+                    <h1 class="text-2xl font-bold text-center mb-6 mt-2">加入'不吼联盟'<br>成为微笑作业天使</h1>
+                    
+                    <!-- 价值锚定卡片 -->
+                    <div class="grid grid-cols-3 gap-3 mb-8">
+                        <!-- 卡片1 -->
+                        <div class="value-card">
+                            <i class="fa-solid fa-chalkboard-user text-blue-500 text-2xl mb-2"></i>
+                            <h3 class="font-semibold">请次家教</h3>
+                            <p class="price">¥200/时</p>
+                            <p class="comparison">仅解一道题</p>
+                        </div>
+                        
+                        <!-- 卡片2 -->
+                        <div class="value-card">
+                            <i class="fa-solid fa-book-open-reader text-green-500 text-2xl mb-2"></i>
+                            <h3 class="font-semibold">买育儿书</h3>
+                            <p class="price">¥50</p>
+                            <p class="comparison">理论难解当下急</p>
+                        </div>
+                        
+                        <!-- 卡片3 -->
+                        <div class="value-card">
+                            <i class="fa-solid fa-mug-saucer text-amber-500 text-2xl mb-2"></i>
+                            <h3 class="font-semibold">续命咖啡</h3>
+                            <p class="price">¥30</p>
+                            <p class="comparison">仅安抚自己一时</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 核心区域：清晰的价值对比表 -->
+                <div class="px-6 mb-6">
+                    <h2 class="text-lg font-semibold text-center mb-4">升级PRO天使版<br>小零钱解决当下的抓狂</h2>
+                    
+                    <!-- 对比表格 -->
+                    <div class="overflow-hidden rounded-lg border border-gray-200 mb-6">
+                        <table class="comparison-table w-full">
+                            <thead>
+                                <tr>
+                                    <th class="feature-col">功能点</th>
+                                    <th class="free-col">免费版<br><span class="text-xs">(守护功能)</span></th>
+                                    <th class="pro-col">PRO天使版<br><span class="text-xs">(全能支持)</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>情绪急救站</td>
+                                    <td><i class="fa-solid fa-check-circle text-green-500"></i> 无限次</td>
+                                    <td><i class="fa-solid fa-check-circle text-green-500"></i> 无限次</td>
+                                </tr>
+                                <tr>
+                                    <td>夸夸生成器</td>
+                                    <td><i class="fa-solid fa-check-circle text-green-500"></i> 无限次</td>
+                                    <td><i class="fa-solid fa-check-circle text-green-500"></i> 无限次</td>
+                                </tr>
+                                <tr>
+                                    <td>拍照搜题</td>
+                                    <td>每日3次</td>
+                                    <td><i class="fa-solid fa-star text-amber-500"></i> 无限次</td>
+                                </tr>
+                                <tr>
+                                    <td>讲解策略</td>
+                                    <td>仅标准讲法</td>
+                                    <td><i class="fa-solid fa-star text-amber-500"></i> 解锁全部</td>
+                                </tr>
+                                <tr>
+                                    <td>AI天才模式</td>
+                                    <td><i class="fa-solid fa-times-circle text-red-500"></i> 不支持</td>
+                                    <td><i class="fa-solid fa-star text-amber-500"></i> 解锁</td>
+                                </tr>
+                                <tr>
+                                    <td>家庭共享</td>
+                                    <td><i class="fa-solid fa-times-circle text-red-500"></i> 不支持</td>
+                                    <td><i class="fa-solid fa-star text-amber-500"></i> 解锁(协同)</td>
+                                </tr>
+                                <tr>
+                                    <td>未来新功能</td>
+                                    <td>部分开放</td>
+                                    <td><i class="fa-solid fa-star text-amber-500"></i> 优先获得</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- 定价选择与最终号召区域 -->
+                <div class="px-6 mb-6">
+                    <h2 class="text-lg font-semibold mb-4 text-center">选择您的平和计划</h2>
+                    
+                    <!-- 定价选项卡片 -->
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <!-- 年付卡片 -->
+                        <div id="yearly-plan" class="pricing-card yearly selected">
+                            <div class="recommended-badge">强烈推荐</div>
+                            <h3 class="text-2xl font-bold mb-1">¥98 <span class="text-sm font-normal">/年</span></h3>
+                            <p class="daily-price mb-2">每天仅需0.27元！</p>
+                            <p class="text-sm text-gray-500">一次投资，守护全家一整年的好心情。</p>
+                        </div>
+                        
+                        <!-- 月付卡片 -->
+                        <div id="monthly-plan" class="pricing-card">
+                            <h3 class="text-2xl font-bold mb-1">¥12 <span class="text-sm font-normal">/月</span></h3>
+                            <p class="daily-price mb-2">每天仅需0.4元</p>
+                            <p class="text-sm text-gray-500">少喝一杯奶茶，换一个平和的夜晚。</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 付费按钮 -->
+                    <button id="payment-btn" class="payment-btn w-full py-4 rounded-lg font-bold text-white text-lg mb-3">
+                        立即开启PRO天使版
+                    </button>
+                    
+                    <!-- 安全感文案 -->
+                    <p class="text-center text-xs text-gray-500 mb-6">您可以随时取消订阅<br>您的支持是我们持续优化的唯一动力</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="js/payment.js"></script>
+</body>
+</html>

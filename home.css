@@ -1,0 +1,129 @@
+/* 首页特定样式 */
+
+/* 选择卡片样式 */
+.choice-card {
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.choice-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    border-left: 4px solid #F9A825;
+}
+
+/* 能力辅导卡片特殊效果 */
+#ability-card:hover .fa-camera {
+    animation: pulse 1s infinite;
+}
+
+/* 情绪疏导卡片特殊效果 */
+#emotion-card:hover .fa-volcano {
+    animation: shake 0.5s infinite;
+}
+
+/* 图标圆圈 */
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+/* VIP链接样式 */
+.premium-link {
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 20px;
+}
+
+.premium-link:hover {
+    background-color: rgba(249, 168, 37, 0.1);
+    transform: translateY(-2px);
+}
+
+.premium-link .fa-crown {
+    animation: float 2s infinite ease-in-out;
+}
+
+/* 页面进入动画 */
+#main-content {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* 动画定义 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(5deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* 响应式调整 */
+@media (max-height: 700px) {
+    .choice-card {
+        padding: 12px;
+    }
+    
+    .icon-circle {
+        width: 50px;
+        height: 50px;
+    }
+    
+    h1 {
+        font-size: 1.25rem;
+    }
+    
+    h3 {
+        font-size: 1rem;
+    }
+}

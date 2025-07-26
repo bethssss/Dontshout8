@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业不吼 - 拍照搜题</title>
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 通用样式 -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- 拍照页面特定样式 -->
+    <link rel="stylesheet" href="css/camera.css">
+</head>
+<body class="bg-[#F5F5F5] h-screen w-screen flex items-center justify-center">
+    <!-- iPhone 外观容器 -->
+    <div class="iphone-container">
+        <!-- 主内容区域 -->
+        <div id="main-content" class="flex flex-col items-center justify-center h-full py-10 px-6">
+            <!-- 返回按钮 -->
+            <div class="absolute top-12 left-6">
+                <a href="home.html" class="text-gray-600 flex items-center">
+                    <i class="fas fa-arrow-left mr-1"></i>
+                    <span>返回</span>
+                </a>
+            </div>
+            
+            <!-- 拍照区域 -->
+            <div id="camera-area" class="w-full h-3/4 flex flex-col items-center justify-center cursor-pointer">
+                <div class="camera-icon-container mb-6">
+                    <i class="fa-solid fa-camera-retro text-6xl text-blue-500"></i>
+                </div>
+                <p class="text-center text-gray-600 max-w-xs">
+                    点击此处，拍照或从相册上传题目
+                </p>
+            </div>
+            
+            <!-- 隐藏的文件输入框 -->
+            <input type="file" accept="image/*" id="image-input" style="display: none;">
+        </div>
+    </div>
+
+    <!-- 拍照页面特定脚本 -->
+    <script src="js/camera.js"></script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业不吼 - 情景式夸夸导航</title>
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 通用样式 -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- 夸夸导航页面特定样式 -->
+    <link rel="stylesheet" href="css/praise-navigator.css">
+</head>
+<body class="bg-[#F5F5F5] h-screen w-screen flex items-center justify-center">
+    <!-- iPhone 外观容器 -->
+    <div class="iphone-container">
+        <!-- 主内容区域 -->
+        <div id="main-content" class="flex flex-col h-full bg-[#F9FAFB] relative">
+            
+            <!-- 场景选择视图 -->
+            <div id="selection-view" class="view">
+                <div class="header">
+                    <!-- 添加返回按钮 -->
+                    <button id="main-back-button" class="back-button">
+                        <i class="fas fa-chevron-left"></i>
+                        <span>返回</span>
+                    </button>
+                    
+                    <!-- 首页按钮 -->
+                    <button id="home-btn-main" class="home-button">
+                        <i class="fas fa-home"></i>
+                        <span>首页</span>
+                    </button>
+                </div>
+                
+                <!-- 标题区域 -->
+                <div class="text-center mb-8 mt-4">
+                    <h1 class="text-2xl font-bold text-gray-800 mb-3 leading-relaxed">一次有效的夸奖，<br>胜过百句唠叨。</h1>
+                    <p class="text-gray-600 text-lg">现在，你最想夸孩子哪一点？</p>
+                </div>
+                
+                <!-- 场景卡片区域 -->
+                <div class="flex-1 flex flex-col justify-center space-y-4">
+                    <!-- 夸努力 -->
+                    <div class="scenario-card" data-category="夸努力">
+                        <div class="flex items-center">
+                            <div class="icon-container bg-red-100">
+                                <i class="fas fa-mountain text-red-500"></i>
+                            </div>
+                            <div class="ml-4 flex-1">
+                                <h3 class="font-semibold text-gray-800">夸努力</h3>
+                                <p class="text-sm text-gray-600">坚持不懈的品质</p>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- 夸思维 -->
+                    <div class="scenario-card" data-category="夸思维">
+                        <div class="flex items-center">
+                            <div class="icon-container bg-blue-100">
+                                <i class="fas fa-lightbulb text-blue-500"></i>
+                            </div>
+                            <div class="ml-4 flex-1">
+                                <h3 class="font-semibold text-gray-800">夸思维</h3>
+                                <p class="text-sm text-gray-600">善于动脑的智慧</p>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- 夸态度 -->
+                    <div class="scenario-card" data-category="夸态度">
+                        <div class="flex items-center">
+                            <div class="icon-container bg-green-100">
+                                <i class="fas fa-handshake text-green-500"></i>
+                            </div>
+                            <div class="ml-4 flex-1">
+                                <h3 class="font-semibold text-gray-800">夸态度</h3>
+                                <p class="text-sm text-gray-600">配合表现的品质</p>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- 夸创意 -->
+                    <div class="scenario-card" data-category="夸创意">
+                        <div class="flex items-center">
+                            <div class="icon-container bg-purple-100">
+                                <i class="fas fa-palette text-purple-500"></i>
+                            </div>
+                            <div class="ml-4 flex-1">
+                                <h3 class="font-semibold text-gray-800">夸创意</h3>
+                                <p class="text-sm text-gray-600">充满想象的思考</p>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 妙计展示视图 -->
+            <div id="praise-view" class="flex flex-col h-full p-6 hidden">
+                <!-- 返回按钮 -->
+                <div class="flex items-center mb-4 mt-4">
+                    <button id="back-button" class="flex items-center text-gray-600">
+                        <i class="fas fa-chevron-left mr-2"></i>
+                        <span>返回选择</span>
+                    </button>
+                </div>
+                
+                <!-- 当前场景标题与标签 -->
+                <div class="category-tag-container mb-2">
+                    <div class="category-tag">
+                        <h2 id="current-category" class="text-xl font-bold text-gray-800 text-center"></h2>
+                    </div>
+                </div>
+                
+                <!-- 妙计卡片 -->
+                <div class="flex-1 flex flex-col justify-center mt-2">
+                    <div class="praise-card">
+                        <!-- 核心话术 -->
+                        <div class="mb-3">
+                            <div class="quote-label">
+                                <span class="quote-icon">💬</span>
+                                <h3 class="text-sm font-semibold text-gray-500">核心话术</h3>
+                            </div>
+                            <div class="quote-content">
+                                <p id="praise-quote" class="text-lg text-gray-800 leading-relaxed"></p>
+                            </div>
+                        </div>
+                        
+                        <!-- 教练解析 -->
+                        <div id="analysis-section" class="hidden mt-3">
+                            <div class="quote-label">
+                                <span class="quote-icon">🎯</span>
+                                <h3 class="text-sm font-semibold text-gray-500">教练解析</h3>
+                            </div>
+                            <div class="analysis-content">
+                                <p id="praise-analysis" class="text-sm text-gray-600 leading-relaxed"></p>
+                            </div>
+                        </div>
+                        
+                        <!-- 为什么这样夸按钮 -->
+                        <button id="why-button" class="mt-4 text-blue-500 text-sm font-medium flex items-center">
+                            <span>为什么这样夸？</span>
+                            <i id="why-icon" class="fas fa-chevron-down ml-2 transition-transform"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 换一句按钮 -->
+                <button id="next-praise" class="praise-btn mt-6">
+                    <i class="fas fa-refresh mr-2"></i>
+                    换一句同类的
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 引入夸夸导航脚本 -->
+    <script src="js/praise-navigator.js"></script>
+</body>
+</html>

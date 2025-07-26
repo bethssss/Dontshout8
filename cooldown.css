@@ -1,0 +1,86 @@
+/**
+ * 战术冷却页面样式
+ */
+
+/* 覆盖iPhone容器的背景色 */
+.iphone-container {
+    background-color: #2C3E50;
+    border-color: #1a2530;
+}
+
+/* 呼吸动画样式 */
+.breathing-animation {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    animation: breathe 8s infinite ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transform-origin: center center; /* 确保从中心点缩放 */
+    will-change: transform, background; /* 优化性能 */
+    margin: 0 auto; /* 水平居中 */
+}
+
+/* 呼吸动画内部光晕 */
+.breathing-animation::before {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 1;
+}
+
+/* 呼吸动画关键帧 - 优化平滑过渡 */
+@keyframes breathe {
+    0%, 100% {
+        transform: scale(0.8);
+        background: rgba(255, 255, 255, 0.2);
+    }
+    50% {
+        transform: scale(1.2);
+        background: rgba(255, 255, 255, 0.4);
+    }
+    /* 添加更多关键帧使过渡更平滑 */
+    25%, 75% {
+        background: rgba(255, 255, 255, 0.3);
+    }
+}
+
+/* 文字容器样式 */
+#quote-text {
+    min-height: 80px; /* 固定最小高度，防止文案长度变化导致布局跳动 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.6;
+    font-weight: 300;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.5s ease-in-out; /* 使用CSS过渡代替动画 */
+}
+
+/* 按钮容器固定高度 */
+.flex.flex-col.mt-4 {
+    margin-top: 1rem;
+    height: 50px; /* 固定高度 */
+    display: flex;
+    align-items: center;
+}
+
+/* 确保整个页面都是深灰蓝色 */
+#main-content {
+    background-color: #2C3E50;
+}
+
+/* 文案容器固定高度 */
+.quote-container {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

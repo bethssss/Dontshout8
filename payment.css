@@ -1,0 +1,149 @@
+/**
+ * 付费引导页样式
+ */
+
+/* 底部抽屉式面板 */
+.payment-sheet {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+    transition: transform 0.3s ease-in-out;
+    max-height: 100%;
+    overflow-y: auto;
+    z-index: 100;
+}
+
+.payment-sheet.hidden {
+    transform: translateY(100%);
+}
+
+/* 价值锚定卡片样式 */
+.value-card {
+    background-color: #f9fafb;
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+}
+
+.value-card .price {
+    font-weight: bold;
+    color: #4b5563;
+    margin: 4px 0;
+}
+
+.value-card .comparison {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    white-space: nowrap;
+}
+
+/* 对比表格样式 */
+.comparison-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 12px 8px;
+    text-align: center;
+    border-bottom: 1px solid #e5e7eb;
+    white-space: nowrap;
+}
+
+.comparison-table th {
+    font-weight: 600;
+    background-color: #f9fafb;
+}
+
+.comparison-table th.feature-col {
+    text-align: left;
+    width: 30%;
+}
+
+.comparison-table td:first-child {
+    text-align: left;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.comparison-table th.pro-col,
+.comparison-table td:last-child {
+    background-color: #fffbeb;
+    font-weight: 500;
+}
+
+.comparison-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* 定价卡片样式 */
+.pricing-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 16px;
+    border: 2px solid #e5e7eb;
+    position: relative;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.pricing-card.yearly {
+    border-color: #3b82f6;
+    box-shadow: 0 4px 6px rgba(59, 130, 246, 0.1);
+    border-width: 2px;
+}
+
+.pricing-card.selected {
+    border-color: #2563eb;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+    transform: translateY(-2px);
+    border-width: 3px;
+}
+
+.recommended-badge {
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    background-color: #ef4444;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 12px;
+}
+
+.daily-price {
+    color: #3b82f6;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* 付费按钮样式 */
+.payment-btn {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+    transition: all 0.2s ease;
+}
+
+.payment-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+}
+
+.payment-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}

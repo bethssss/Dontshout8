@@ -1,0 +1,318 @@
+/**
+ * 情景式夸夸导航页面样式
+ */
+
+/* 场景卡片样式 */
+.scenario-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.scenario-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-color: #E5E7EB;
+}
+
+.scenario-card:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 图标容器样式 */
+.icon-container {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+/* 场景标签样式 */
+.category-tag-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-tag {
+    display: inline-block;
+    background-color: #f3f4f6;
+    border-radius: 20px;
+    padding: 0.5rem 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.category-tag::before {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #f3f4f6;
+    transition: all 0.3s ease;
+}
+
+/* 不同场景标签颜色 */
+.tag-effort {
+    background-color: #EFF6FF;
+    border: 1px solid #DBEAFE;
+}
+.tag-effort::before {
+    border-top-color: #EFF6FF;
+}
+
+.tag-thinking {
+    background-color: #F0FDF4;
+    border: 1px solid #DCFCE7;
+}
+.tag-thinking::before {
+    border-top-color: #F0FDF4;
+}
+
+.tag-attitude {
+    background-color: #FEF2F2;
+    border: 1px solid #FEE2E2;
+}
+.tag-attitude::before {
+    border-top-color: #FEF2F2;
+}
+
+.tag-creativity {
+    background-color: #FAF5FF;
+    border: 1px solid #F3E8FF;
+}
+.tag-creativity::before {
+    border-top-color: #FAF5FF;
+}
+
+/* 妙计卡片样式 */
+.praise-card {
+    background-color: white;
+    border-radius: 16px;
+    padding: 1.25rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #4F46E5;
+    margin-top: 0.5rem;
+}
+
+/* 核心话术标签样式 */
+.quote-label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.quote-icon {
+    margin-right: 0.5rem;
+    font-size: 1rem;
+}
+
+/* 核心话术内容样式 */
+.quote-content {
+    background-color: #f9fafb;
+    border-radius: 12px;
+    padding: 1rem;
+    border: 1px solid #f3f4f6;
+    position: relative;
+}
+
+.quote-content::before {
+    content: '"';
+    position: absolute;
+    top: -0.5rem;
+    left: 0.5rem;
+    font-size: 2rem;
+    color: #e5e7eb;
+    font-family: serif;
+    opacity: 0.5;
+}
+
+/* 教练解析内容样式 */
+.analysis-content {
+    background-color: #f9fafb;
+    border-radius: 12px;
+    padding: 1rem;
+    border: 1px solid #f3f4f6;
+    position: relative;
+    border-left: 3px solid #10B981;
+}
+
+.analysis-content::before {
+    content: '💡';
+    position: absolute;
+    top: -0.5rem;
+    left: 0.5rem;
+    font-size: 1rem;
+    opacity: 0.3;
+}
+
+/* 换一句按钮样式 */
+.praise-btn {
+    background-color: #4F46E5;
+    color: white;
+    padding: 0.875rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(79, 70, 229, 0.25);
+    width: 100%;
+}
+
+.praise-btn:hover {
+    background-color: #4338CA;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(79, 70, 229, 0.3);
+}
+
+.praise-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(79, 70, 229, 0.2);
+}
+
+/* 返回按钮样式 */
+#back-button {
+    transition: color 0.3s ease;
+}
+
+#back-button:hover {
+    color: #4F46E5;
+}
+
+/* 为什么这样夸按钮样式 */
+#why-button {
+    transition: all 0.3s ease;
+}
+
+#why-button:hover {
+    color: #4338CA;
+}
+
+/* 视图切换动画 */
+.view-transition {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* 妙计更新动画 */
+.praise-update {
+    animation: fadeInUp 0.4s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 教练解析展开动画 */
+.analysis-expand {
+    animation: expandDown 0.3s ease-out;
+}
+
+@keyframes expandDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        max-height: 200px;
+        transform: translateY(0);
+    }
+}
+
+/* 图标旋转动画 */
+.icon-rotate {
+    transform: rotate(180deg);
+}
+
+/* 响应式调整 */
+@media (max-height: 700px) {
+    .scenario-card {
+        padding: 0.75rem;
+    }
+    
+    .praise-card {
+        padding: 1.25rem;
+    }
+    
+    #main-content {
+        padding: 1rem;
+    }
+}
+
+/* 确保内容不会溢出 */
+#main-content {
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+#main-content::-webkit-scrollbar {
+    display: none;
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.back-button i {
+    font-size: 18px;
+}

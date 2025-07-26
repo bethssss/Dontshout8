@@ -1,0 +1,12 @@
+module.exports = {
+  rewrites: [
+    {
+      source: '/api/:path*',
+      destination: '/api/:path*',
+    },
+    {
+      source: '/:path*',
+      destination: '/api/index.py',
+    },
+  ],
+};

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业不吼 - 首页</title>
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 通用样式 -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- 首页特定样式 -->
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body class="bg-[#F5F5F5] h-screen w-screen flex items-center justify-center">
+    <!-- iPhone 外观容器 -->
+    <div class="iphone-container">
+        <!-- 主内容区域 -->
+        <div id="main-content" class="flex flex-col items-center justify-between h-full py-10 px-6">
+            <!-- 顶部标题 -->
+            <div class="w-full text-center mb-8">
+                <h1 class="text-2xl font-bold text-gray-800">今天，遇到了什么？</h1>
+            </div>
+            
+            <!-- 主要选择卡片区域 -->
+            <div class="w-full flex flex-col gap-6">
+                <!-- 能力辅导卡片 -->
+                <div id="ability-card" class="choice-card bg-white p-6 rounded-2xl shadow-md flex items-center">
+                    <div class="icon-circle bg-blue-100 p-4 rounded-full mr-4">
+                        <i class="fa-solid fa-camera text-blue-500 text-2xl"></i>
+                    </div>
+                    <div class="card-content flex-1">
+                        <h3 class="text-lg font-semibold text-gray-800">遇到难题了？</h3>
+                        <p class="text-sm text-gray-600 mt-1">拍照搜题，获取讲解方法</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-gray-400"></i>
+                </div>
+                
+                <!-- 情绪疏导卡片 -->
+                <div id="emotion-card" class="choice-card bg-white p-6 rounded-2xl shadow-md flex items-center">
+                    <div class="icon-circle bg-red-100 p-4 rounded-full mr-4">
+                        <i class="fa-solid fa-volcano text-red-500 text-2xl"></i>
+                    </div>
+                    <div class="card-content flex-1">
+                        <h3 class="text-lg font-semibold text-gray-800">感觉要炸了？</h3>
+                        <p class="text-sm text-gray-600 mt-1">点击这里，立刻冷静一下</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-gray-400"></i>
+                </div>
+            </div>
+            
+            <!-- 底部VIP链接 -->
+            <div class="w-full flex justify-end mt-8">
+                <a href="payment.html" class="premium-link flex items-center text-[#F9A825] font-medium">
+                    <i class="fa-solid fa-crown mr-1"></i>
+                    <span>成为不吼联盟发起人</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 首页特定脚本 -->
+    <script src="js/home.js"></script>
+</body>
+</html>

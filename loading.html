@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业不吼 - 加载中</title>
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 通用样式 -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* 进度条 */
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background-color: #E5E7EB;
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 1.5rem 0;
+        }
+        
+        .progress-bar-fill {
+            height: 100%;
+            background-color: #3B82F6;
+            border-radius: 3px;
+            animation: fill 6s ease-in-out forwards;
+        }
+        
+        @keyframes fill {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+        
+        /* 机器人动画 */
+        .robot-container {
+            width: 120px;
+            height: 120px;
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+        
+        .robot-head {
+            width: 60px;
+            height: 50px;
+            background-color: #3B82F6;
+            border-radius: 10px;
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            animation: think 1.5s infinite;
+        }
+        
+        .robot-eye {
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 15px;
+        }
+        
+        .robot-eye.left {
+            left: 15px;
+            animation: blink 3s infinite;
+        }
+        
+        .robot-eye.right {
+            right: 15px;
+            animation: blink 3s infinite 0.5s;
+        }
+        
+        .robot-antenna {
+            width: 5px;
+            height: 15px;
+            background-color: #3B82F6;
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .robot-antenna::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background-color: #F59E0B;
+            border-radius: 50%;
+            position: absolute;
+            top: -8px;
+            left: -2.5px;
+            animation: glow 2s infinite;
+        }
+        
+        .robot-body {
+            width: 70px;
+            height: 40px;
+            background-color: #60A5FA;
+            border-radius: 5px;
+            position: absolute;
+            top: 70px;
+            left: 25px;
+        }
+        
+        .magic-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background-color: #F59E0B;
+            border-radius: 50%;
+            opacity: 0;
+        }
+        
+        .particle:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation: float 3s infinite 0.2s;
+        }
+        
+        .particle:nth-child(2) {
+            top: 30%;
+            left: 85%;
+            animation: float 2.5s infinite 0.5s;
+        }
+        
+        .particle:nth-child(3) {
+            top: 70%;
+            left: 20%;
+            animation: float 3.5s infinite 0.7s;
+        }
+        
+        .particle:nth-child(4) {
+            top: 60%;
+            left: 75%;
+            animation: float 3s infinite 1s;
+        }
+        
+        .particle:nth-child(5) {
+            top: 40%;
+            left: 40%;
+            animation: float 4s infinite 1.5s;
+        }
+        
+        @keyframes think {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+        }
+        
+        @keyframes blink {
+            0%, 90%, 100% { transform: scale(1); }
+            95% { transform: scale(0.1); }
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 5px 2px rgba(245, 158, 11, 0.5); }
+            50% { box-shadow: 0 0 10px 5px rgba(245, 158, 11, 0.8); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-20px); opacity: 0; }
+        }
+        
+        /* 文字淡入淡出动画 */
+        .fade-text {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        
+        .fade-text.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-[#F5F5F5] h-screen w-screen flex items-center justify-center">
+    <!-- iPhone 外观容器 -->
+    <div class="iphone-container">
+        <!-- 主内容区域 -->
+        <div id="main-content" class="flex flex-col items-center justify-center h-full py-10 px-6">
+            <!-- 机器人老师动画 -->
+            <div class="robot-container">
+                <div class="robot-antenna"></div>
+                <div class="robot-head">
+                    <div class="robot-eye left"></div>
+                    <div class="robot-eye right"></div>
+                </div>
+                <div class="robot-body"></div>
+                <div class="magic-particles">
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                </div>
+            </div>
+            
+            <!-- 加载文字 -->
+            <h2 class="text-xl font-semibold text-gray-800 mb-2">AI老师正在思考</h2>
+            <p id="loading-text" class="text-gray-600 text-center mb-4 h-6 fade-text active">正在识别题目文字...</p>
+            
+            <!-- 进度条 -->
+            <div class="progress-bar w-full max-w-xs">
+                <div class="progress-bar-fill"></div>
+            </div>
+            
+            <!-- 提示信息 -->
+            <p class="text-sm text-gray-500 text-center mt-6">
+                <i class="fa-solid fa-lightbulb text-yellow-500 mr-1"></i>
+                提示：我们会为您提供多种讲解方式
+            </p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingText = document.getElementById('loading-text');
+            const texts = [
+                "正在识别题目文字...",
+                "AI教练正在分析考点...",
+                "马上为你生成讲解方法！"
+            ];
+            const delays = [2000, 3000, 1000]; // 各文案显示时间（毫秒）
+            let currentIndex = 0;
+            
+            // 文字切换函数
+            function changeText() {
+                loadingText.classList.remove('active');
+                
+                setTimeout(() => {
+                    currentIndex = (currentIndex + 1) % texts.length;
+                    loadingText.textContent = texts[currentIndex];
+                    loadingText.classList.add('active');
+                    
+                    if (currentIndex < texts.length - 1) {
+                        setTimeout(changeText, delays[currentIndex]);
+                    } else {
+                        // 最后一条文案显示完后，等待设定时间再跳转
+                        setTimeout(() => {
+                            window.location.href = 'library.html';
+                        }, delays[currentIndex]);
+                    }
+                }, 500); // 淡出后等待500ms再更换文字
+            }
+            
+            // 启动文字切换
+            setTimeout(changeText, delays[0]);
+        });
+    </script>
+</body>
+</html>

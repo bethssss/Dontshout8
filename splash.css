@@ -1,0 +1,52 @@
+/* 启动页特定样式 */
+
+/* Logo动画效果 */
+.fa-hands-holding-child {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* 产品名称样式 */
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+/* Slogan样式 */
+p {
+    font-size: 1.2rem;
+    color: #666;
+    letter-spacing: 0.5px;
+}
+
+/* 淡入效果 */
+#main-content {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
